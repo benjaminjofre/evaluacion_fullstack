@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EducaPro - Reportes y Estadísticas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="index.html">EducaPro Store</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="contacto.html">Registro e Inscripción</a></li>
+            <li class="nav-item"><a class="nav-link active" href="estadisticas.html">Reportes</a></li>
+          </ul>
+          <div class="d-flex">
+            <button id="btnMostrarLogin" class="btn btn-outline-warning btn-sm fw-bold" data-bs-toggle="modal" data-bs-target="#loginModal">
+              Iniciar Sesión 
+            </button>
+            <button id="btnCerrarSesion" class="btn btn-outline-danger btn-sm fw-bold d-none" onclick="cerrarSesionAdmin()">
+              Cerrar Sesión
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-5">
+    <h2 class="text-center mb-4 fw-bold">Reportes de Inscritos por Curso</h2>
+    
+    <div class="row g-4 mb-5">
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm border-primary">
+          <div class="card-body">
+            <h5 class="card-title text-primary">HTML5 y CSS3</h5>
+            <p class="display-4 fw-bold my-3" id="count-html">0</p>
+            <p class="card-text text-muted">Estudiantes inscritos</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm border-success">
+          <div class="card-body">
+            <h5 class="card-title text-success">JavaScript Avanzado</h5>
+            <p class="display-4 fw-bold my-3" id="count-js">0</p>
+            <p class="card-text text-muted">Estudiantes inscritos</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm border-warning">
+          <div class="card-body">
+            <h5 class="card-title text-warning">Git y GitHub</h5>
+            <p class="display-4 fw-bold my-3" id="count-git">0</p>
+            <p class="card-text text-muted">Estudiantes inscritos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="panelAdminDetalles" class="card shadow p-4 border-warning d-none">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="h4 fw-bold text-dark mb-0">Lista de Estudiantes Inscritos</h3>
+        <span class="badge bg-warning text-dark fs-6">Modo Administrador</span>
+      </div>
+      <p class="text-muted small">Este panel es visible únicamente para el administrador del sistema.</p>
+      
+      <div class="table-responsive">
+        <table class="table table-striped table-hover align-middle">
+          <thead class="table-dark">
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Teléfono</th>
+              <th>Curso</th>
+              <th>Fecha Registro</th>
+            </tr>
+          </thead>
+          <tbody id="tablaInscritosBody">
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-dark text-white">
+          <h5 class="modal-title" id="loginModalLabel">Acceso Administrador</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <form onsubmit="iniciarSesionAdmin(event)">
+            <div class="mb-3">
+              <label for="adminUser" class="form-label">Usuario</label>
+              <input type="text" class="form-control" id="adminUser"  required>
+            </div>
+            <div class="mb-3">
+              <label for="adminPass" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="adminPass" required>
+            </div>
+            <div id="errorLogin" class="alert alert-danger d-none py-2" role="alert">
+              Usuario o contraseña incorrectos.
+            </div>
+            <button type="submit" class="btn btn-primary w-100 mt-2">Iniciar Sesión</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-4 mt-5">
+    <div class="container">
+      <p class="mb-1 fw-bold">EducaPro Store - Proyecto Formativo DSY1104</p>
+      <small>&copy; 2026 Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/funciones.js"></script>
+</body>
+</html>
