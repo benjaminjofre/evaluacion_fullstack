@@ -2,7 +2,7 @@
 body {
   
   background: linear-gradient(to right, #601a18, #92403d, #c48b88, #e8d7d6, #f4eeed) !important;
-  background-attachment: fixed; /* Mantiene el fondo estático al hacer scroll */
+  background-attachment: fixed; 
   min-height: 1080px;
 
 }
