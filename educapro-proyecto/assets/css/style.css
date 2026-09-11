@@ -1,0 +1,29 @@
+/* Estilos con diseño y fondo educativo */
+body {
+  
+  background: linear-gradient(to right, #601a18, #92403d, #c48b88, #e8d7d6, #f4eeed) !important;
+  background-attachment: fixed; 
+  min-height: 1080px;
+
+}
+
+/* Efectos en tarjetas */
+.card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 20px rgba(13, 253, 105, 0.15) !important;
+}
+
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Pie de página con toque educativo */
+footer {
+  border-top: 5px solid #ffc107;
+}
