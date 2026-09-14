@@ -37,7 +37,6 @@
           <h1 class="h3 fw-bold text-primary mb-3">Pasarela de Pago Simulado</h1>
           
           <div id="resumenInscripcion" class="alert alert-info mb-4">
-            <!-- Se llena dinámicamente -->
           </div>
 
           <form id="formPago">
@@ -88,7 +87,6 @@
         alumno.pagado = true;
         localStorage.setItem('alumnoInscrito', JSON.stringify(alumno));
 
-        // Incrementar el contador global de estudiantes
         let contadorTotal = parseInt(localStorage.getItem('totalEstudiantesGlobal')) || 3200;
         contadorTotal += 1;
         localStorage.setItem('totalEstudiantesGlobal', contadorTotal);

@@ -14,7 +14,7 @@ body {
   color: #334155;
 }
 
-/* Navbar Juvenil e Institucional */
+
 .navbar {
   background: #0f172a !important;
   backdrop-filter: blur(10px);
@@ -25,7 +25,6 @@ body {
   letter-spacing: -0.5px;
 }
 
-/* Hero Banner Impactante */
 .hero-card {
   background: #ffffff;
   border: none;
@@ -47,7 +46,7 @@ body {
   transform: scale(1.02);
 }
 
-/* Tarjetas de Cursos Estilo Dashboard */
+
 .card {
   border: none;
   border-radius: 18px;
@@ -67,7 +66,7 @@ body {
   object-fit: cover;
 }
 
-/* Botones con estilo moderno */
+
 .btn-primary {
   background-color: var(--primary-color);
   border: none;
@@ -85,7 +84,7 @@ body {
   font-weight: 700;
 }
 
-/* Badges y Tablas */
+
 .badge {
   border-radius: 8px;
   padding: 6px 12px;
