@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EducaPro - Panel del Coordinador Académico</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-warning" href="index.html">🎓 EducaPro</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-bold" href="contacto.html">Inscripción</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pago.html">Pago Matrícula</a></li>
+                    <li class="nav-item"><a class="nav-link" href="estudiante.html">Mi Portal</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profesor.html">Portal Docente</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin.html">Gestión Académica</a></li>
+                    <li class="nav-item"><a class="nav-link" href="estadisticas.html">Reportes</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </header>
+
+    <main>
+        <h2>Panel de Control - Coordinador Académico</h2>
+        
+        <!-- Formulario de asignación de profesores -->
+        <section class="card">
+            <h3>Asignación de Profesores a Cursos</h3>
+            <form id="form-asignacion">
+                <label for="select-curso">Curso:</label>
+                <select id="select-curso" required>
+                    <!-- Se cargan dinámicamente desde JS -->
+                </select>
+
+                <label for="select-profesor">Profesor:</label>
+                <select id="select-profesor" required>
+                    <option value="Juan López">Juan López</option>
+                    <option value="María González">María González</option>
+                    <option value="Carlos Soto">Carlos Soto</option>
+                    <option value="Luis Pérez">Luis Pérez</option>
+                    <option value="Ana Rodríguez">Ana Rodríguez</option>
+                </select>
+
+                <button type="submit">Asignar Profesor</button>
+            </form>
+        </section>
+
+        <!-- Programación visual de cursos -->
+        <section class="card">
+            <h3>Programación Académica de Cursos</h3>
+            <table border="1" id="tabla-coordinacion">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Curso</th>
+                        <th>Área</th>
+                        <th>Capacidad</th>
+                        <th>Profesor Asignado</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-cursos-coordinador">
+                    <!-- Filas generadas por JavaScript -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="assets/js/funciones.js"></script>
+</body>
+</html>
