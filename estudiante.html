@@ -3,111 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EducaPro - Mi Portal</title>
+  <title>EducaPro - Mi Portal Estudiantil</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-
-  <!-- Encabezado y Navegación -->
+<body class="bg-light">
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top">
       <div class="container">
-        <a class="navbar-brand fw-bold text-warning" href="index.html">🎓 EducaPro</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <a class="navbar-brand text-warning fw-bold fs-4" href="index.html">🎓 EducaPro</a>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav me-auto">
             <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
             <li class="nav-item"><a class="nav-link" href="contacto.html">Inscripción</a></li>
             <li class="nav-item"><a class="nav-link" href="pago.html">Pago Matrícula</a></li>
-            <li class="nav-item"><a class="nav-link active fw-bold" href="estudiante.html">Mi Portal</a></li>
-            <li class="nav-item"><a class="nav-link" href="profesor.html">Portal Docente</a></li>
-            <li class="nav-item"><a class="nav-link" href="admin.html">Gestión Académica</a></li>
-            <li class="nav-item"><a class="nav-link" href="estadisticas.html">Reportes</a></li>
+            <li class="nav-item"><a class="nav-link active fw-semibold" href="estudiante.html">Mi Portal</a></li>
           </ul>
         </div>
       </div>
     </nav>
   </header>
 
-  <main class="container my-5">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-      <div>
-        <h1 class="h2 text-primary fw-bold mb-1">Mi Portal Académico</h1>
-        <p class="text-muted mb-0">Seguimiento en tiempo real de mis asignaturas</p>
-      </div>
-      <span class="badge bg-primary fs-6">RUT: 20.123.456-7</span>
-    </div>
-
-    <!-- Tabla del Flujo de Cursos -->
-    <div class="card shadow-sm border-0 mb-4">
-      <div class="card-header bg-white py-3">
-        <h5 class="mb-0 fw-bold text-dark">Mis Cursos e Historial Académico</h5>
-      </div>
-      <div class="card-body p-0">
-        <div class="table-responsive">
-          <table class="table table-hover align-middle mb-0">
-            <thead class="table-light">
-              <tr>
-                <th>Código y Curso</th>
-                <th>Estado</th>
-                <th>Descripción para el Estudiante</th>
-                <th>Acciones Posibles</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Matriculado -->
-              <tr>
-                <td><strong>CRS004</strong><br><small class="text-muted">Electrónica Básica</small></td>
-                <td><span class="badge bg-warning text-dark">Matriculado</span></td>
-                <td>Has sido matriculado en el curso.</td>
-                <td><button class="btn btn-sm btn-outline-secondary fw-bold">Ver detalles del curso</button></td>
-              </tr>
-              <!-- En curso -->
-              <tr>
-                <td><strong>CRS003</strong><br><small class="text-muted">Marketing Digital</small></td>
-                <td><span class="badge bg-primary">En curso</span></td>
-                <td>El curso está en progreso.</td>
-                <td><button class="btn btn-sm btn-outline-primary fw-bold">Ver calificaciones, asistencia</button></td>
-              </tr>
-              <!-- Finalizado -->
-              <tr>
-                <td><strong>CRS002</strong><br><small class="text-muted">Diseño Gráfico Digital</small></td>
-                <td><span class="badge bg-info text-dark">Finalizado</span></td>
-                <td>El curso ha finalizado.</td>
-                <td><button class="btn btn-sm btn-outline-info text-dark fw-bold">Ver calificaciones finales</button></td>
-              </tr>
-              <!-- Certificado -->
-              <tr>
-                <td><strong>CRS001</strong><br><small class="text-muted">Fundamentos de Programación</small></td>
-                <td><span class="badge bg-success">Certificado</span></td>
-                <td>Has obtenido tu certificado.</td>
-                <td><button class="btn btn-sm btn-success fw-bold">Descargar certificado</button></td>
-              </tr>
-              <!-- Reprobado -->
-              <tr>
-                <td><strong>CRS005</strong><br><small class="text-muted">Gestión de Proyectos</small></td>
-                <td><span class="badge bg-danger">Reprobado</span></td>
-                <td>No has aprobado el curso.</td>
-                <td><button class="btn btn-sm btn-outline-danger fw-bold">Ver detalles, solicitar recuperación</button></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+  <main class="container my-5" id="contenedorPortal">
+    <!-- El contenido se renderizará automáticamente por JavaScript -->
   </main>
 
-  <footer class="bg-dark text-white text-center py-4 mt-5">
-    <div class="container">
-      <p class="mb-1 fw-bold">EducaPro - Plataforma Digital de Estudiantes</p>
-      <small>&copy; 2026 Todos los derechos reservados.</small>
-    </div>
-  </footer>
+  <script>
+    const alumnoData = localStorage.getItem('alumnoInscrito');
+    const contenedor = document.getElementById('contenedorPortal');
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/funciones.js"></script>
+    if (alumnoData) {
+      const alumno = JSON.parse(alumnoData);
+
+      if (alumno.pagado) {
+        // VISTA CON INSCRIPCIÓN Y PAGO ACTIVO
+        contenedor.innerHTML = `
+          <section class="card shadow-sm border-0 rounded-3 p-4 mb-4 bg-white">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+              <div>
+                <h1 class="h3 fw-bold text-dark mb-1">Bienvenido(a), ${alumno.nombre}</h1>
+                <p class="text-muted mb-0">RUT: <strong>${alumno.rut}</strong> | Estado: <span class="badge bg-success">Matriculado / En Curso</span></p>
+              </div>
+              <button onclick="cerrarSesion()" class="btn btn-outline-danger btn-sm">Cerrar / Borrar Inscripción</button>
+            </div>
+          </section>
+
+          <section class="card shadow-sm border-0 rounded-3 p-4 mb-4 bg-white">
+            <h2 class="h5 fw-bold text-dark mb-3">Mi Asignatura Activa</h2>
+            <h3 class="h4 text-primary fw-bold mb-1">${alumno.curso}</h3>
+            <p class="text-muted mb-3">Duración: 40 horas | Estado de Pago: <span class="badge bg-primary">Matrícula Pagada</span></p>
+            <div class="progress" style="height: 20px;">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" style="width: 10%;">10% Completado</div>
+            </div>
+          </section>
+
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="card shadow-sm border-0 rounded-3 p-4 bg-white">
+                <h3 class="h5 fw-bold text-dark mb-3">Mis Calificaciones</h3>
+                <p class="text-muted small">Aún no hay evaluaciones registradas para este periodo.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card shadow-sm border-0 rounded-3 p-4 bg-white">
+                <h3 class="h5 fw-bold text-dark mb-3">Asistencia Registrada</h3>
+                <p class="text-muted small">0% - Las clases inician próximamente.</p>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        // INSCRITO PERO PENDIENTE DE PAGO
+        mostrarSinInscripcion("Tienes una inscripción pendiente de pago.", "pago.html", "Ir a Pagar Matrícula");
+      }
+    } else {
+      // VISTA SIN REGISTRO
+      mostrarSinInscripcion("Actualmente no estás inscrito en ningún curso.", "contacto.html", "Inscribirme a un Curso");
+    }
+
+    function mostrarSinInscripcion(mensaje, enlace, textoBoton) {
+      contenedor.innerHTML = `
+        <section class="card shadow-sm border-0 rounded-3 p-5 text-center bg-white">
+          <div class="py-4">
+            <div class="display-1 text-muted mb-3">📚</div>
+            <h2 class="h4 fw-bold text-dark mb-2">No tienes cursos activos</h2>
+            <p class="text-muted mb-4">${mensaje}</p>
+            <a href="${enlace}" class="btn btn-primary btn-lg fw-semibold shadow-sm px-4">${textoBoton}</a>
+          </div>
+        </section>
+      `;
+    }
+
+    function cerrarSesion() {
+      localStorage.removeItem('alumnoInscrito');
+      window.location.reload();
+    }
+  </script>
 </body>
 </html>

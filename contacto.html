@@ -3,23 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EducaPro - Inscripción de Estudiantes</title>
+  <title>EducaPro - Inscripción</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
-
+<body class="bg-light">
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top">
       <div class="container">
-        <a class="navbar-brand fw-bold text-warning" href="index.html">🎓 EducaPro</a>
+        <a class="navbar-brand text-warning fw-bold fs-4" href="index.html">🎓 EducaPro</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav me-auto">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link active fw-bold" href="contacto.html">Inscripción</a></li>
+            <li class="nav-item"><a class="nav-link active fw-semibold" href="contacto.html">Inscripción</a></li>
             <li class="nav-item"><a class="nav-link" href="pago.html">Pago Matrícula</a></li>
             <li class="nav-item"><a class="nav-link" href="estudiante.html">Mi Portal</a></li>
             <li class="nav-item"><a class="nav-link" href="profesor.html">Portal Docente</a></li>
@@ -33,45 +32,41 @@
 
   <main class="container my-5">
     <div class="row justify-content-center">
-      <div class="col-md-8 col-lg-6">
-        <div class="card shadow p-4 border-0 rounded-4">
-          <h2 class="text-center mb-4 fw-bold text-primary">Formulario de Matrícula</h2>
-          
-          <form id="formularioRegistro" novalidate>
-            <div class="mb-3">
-              <label for="nombre" class="form-label">Nombre Completo</label>
-              <input type="text" class="form-control" id="nombre" >
-              <div class="invalid-feedback" id="errorNombre">Debe ingresar al menos 3 caracteres.</div>
-            </div>
-
-            <div class="mb-3">
-              <label for="email" class="form-label">Correo Electrónico</label>
-              <input type="email" class="form-control" id="email" >
-              <div class="invalid-feedback" id="errorEmail">Ingrese un correo electrónico válido.</div>
-            </div>
-
-            <div class="mb-3">
-              <label for="telefono" class="form-label">Teléfono (+569)</label>
-              <input type="tel" class="form-control" id="telefono" placeholder="+56912345678">
-              <div class="invalid-feedback" id="errorTelefono">Ingrese un número válido (+569 seguido de 8 dígitos).</div>
-            </div>
-
-            <div class="mb-3">
-              <label for="curso" class="form-label">Curso a Matricular</label>
-              <select class="form-select" id="curso">
-                <option value="">Seleccione un curso...</option>
-                <option value="CRS001">CRS001 - Fundamentos de Programación ($250.000 CLP)</option>
-                <option value="CRS002">CRS002 - Diseño Gráfico Digital ($220.000 CLP)</option>
-                <option value="CRS003">CRS003 - Marketing Digital ($200.000 CLP)</option>
-                <option value="CRS004">CRS004 - Electrónica Básica ($280.000 CLP)</option>
-                <option value="CRS005">CRS005 - Gestión de Proyectos ($230.000 CLP)</option>
-              </select>
-              <div class="invalid-feedback" id="errorCurso">Debe seleccionar un curso.</div>
-            </div>
-
-            <button type="submit" class="btn btn-primary w-100 mt-3 fw-bold">Continuar al Pago</button>
-            <div id="mensajeExito" class="alert alert-success mt-3 d-none" role="alert">
-              ¡Inscripción registrada! Redirigiendo a la pasarela de pago...
+      <div class="col-lg-8">
+        <div class="card shadow-sm border-0 rounded-3 p-4 bg-white">
+          <h1 class="h3 fw-bold text-primary mb-3">Formulario de Inscripción</h1>
+          <form id="formInscripcion">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Nombre Completo</label>
+                <input type="text" id="txtNombre" class="form-control" placeholder="Ej: Juan Pérez" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">RUT Alumno/a</label>
+                <input type="text" id="txtRut" class="form-control" placeholder="12.345.678-K" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Correo Electrónico</label>
+                <input type="email" id="txtEmail" class="form-control" placeholder="nombre@ejemplo.com" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-semibold">Teléfono de Contacto</label>
+                <input type="tel" id="txtTelefono" class="form-control" placeholder="+56 9 1234 5678" required>
+              </div>
+              <div class="col-12">
+                <label class="form-label fw-semibold">Curso a Inscribir</label>
+                <select id="selectCurso" class="form-select" required>
+                  <option value="" selected disabled>Selecciona una asignatura...</option>
+                  <option value="CRS001 - Fundamentos de Programación">CRS001 - Fundamentos de Programación</option>
+                  <option value="CRS002 - Diseño Gráfico Digital">CRS002 - Diseño Gráfico Digital</option>
+                  <option value="CRS003 - Marketing Digital">CRS003 - Marketing Digital</option>
+                  <option value="CRS004 - Electrónica Básica">CRS004 - Electrónica Básica</option>
+                  <option value="CRS005 - Gestión de Proyectos">CRS005 - Gestión de Proyectos</option>
+                </select>
+              </div>
+              <div class="col-12 mt-4 text-end">
+                <button type="submit" class="btn btn-primary px-4 fw-semibold">Continuar al Pago de Matrícula</button>
+              </div>
             </div>
           </form>
         </div>
@@ -79,13 +74,19 @@
     </div>
   </main>
 
-  <footer class="bg-dark text-white text-center py-4 mt-5">
-    <div class="container">
-      <small>&copy; 2026 EducaPro - Sistema de Gestión Digital.</small>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/funciones.js"></script>
+  <script>
+    document.getElementById('formInscripcion').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const alumno = {
+        nombre: document.getElementById('txtNombre').value,
+        rut: document.getElementById('txtRut').value,
+        email: document.getElementById('txtEmail').value,
+        curso: document.getElementById('selectCurso').value,
+        pagado: false
+      };
+      localStorage.setItem('alumnoInscrito', JSON.stringify(alumno));
+      window.location.href = 'pago.html';
+    });
+  </script>
 </body>
 </html>

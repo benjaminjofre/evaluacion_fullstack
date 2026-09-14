@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EducaPro - Gestión de Cursos</title>
+  <title>EducaPro - Inicio</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -11,9 +11,9 @@
 
   <!-- Encabezado y Navegación Principal -->
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top">
       <div class="container">
-        <a class="navbar-brand text-warning" href="index.html">🎓 EducaPro</a>
+        <a class="navbar-brand text-warning fw-bold fs-4" href="index.html">🎓 EducaPro</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,21 +33,20 @@
   </header>
 
   <main class="container my-5">
-    <!-- Hero Banner Juvenil e Institucional -->
-    <section class="hero-card p-4 p-md-5 mb-5">
+    <!-- Hero Banner -->
+    <section class="hero-card bg-light p-4 p-md-5 rounded-3 mb-5 border shadow-sm">
       <div class="row align-items-center g-4">
-        <div class="col-lg-6">
-          <span class="badge bg-primary-subtle text-primary mb-3 px-3 py-2 fs-6">Admisión 2026 Abierta</span>
-          <h1 class="display-4 fw-extrabold text-dark mb-3">Construye tu futuro profesional en EducaPro</h1>
+        <div class="col-lg-7">
+          <span class="badge bg-primary mb-3 px-3 py-2 fs-6">Admisión 2026 Abierta</span>
+          <h1 class="display-5 fw-bold text-dark mb-3">Construye tu futuro profesional en EducaPro</h1>
           <p class="lead text-muted mb-4">Aprende con metodologías prácticas, tecnología de vanguardia y docentes expertos en la industria.</p>
           <div class="d-flex gap-3">
-            <a href="contacto.html" class="btn btn-warning btn-lg shadow-sm">Inscribirme Ahora</a>
-            <a href="#catalogo" class="btn btn-outline-secondary btn-lg">Explorar Cursos</a>
+            <a href="contacto.html" class="btn btn-warning btn-lg shadow-sm text-dark fw-bold">Inscribirme Ahora</a>
+            <a href="#catalogo" class="btn btn-outline-primary btn-lg">Explorar Cursos</a>
           </div>
         </div>
-        <div class="col-lg-6">
-          <!-- Imagen renovada: Ambiente universitario dinámico y profesional -->
-          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=80" alt="Estudiantes universitarios EducaPro" class="hero-img shadow-lg">
+        <div class="col-lg-5">
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=80" alt="Estudiantes universitarios EducaPro" class="img-fluid rounded shadow">
         </div>
       </div>
     </section>
@@ -56,105 +55,114 @@
     <section id="catalogo" class="my-5">
       <div class="text-center mb-5">
         <h2 class="fw-bold text-dark display-6">Catálogo de Cursos Oficiales</h2>
-        <p class="text-muted">Programas diseñados para responder a la demanda del mercado actual</p>
+        <p class="text-muted fs-5">3.200 cupos anuales distribuidos en nuestras 5 áreas de especialización</p>
       </div>
 
       <div class="row g-4">
         <!-- CRS001 -->
-        <div class="col-md-4">
-          <article class="card h-100">
+        <div class="col-md-6 col-lg-4">
+          <article class="card h-100 shadow-sm border-0">
             <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Fundamentos de Programación">
             <div class="card-body d-flex flex-column">
               <div>
                 <span class="badge bg-info text-dark mb-2">Tecnología</span>
                 <h3 class="card-title h5 text-dark fw-bold">CRS001 - Fundamentos de Programación</h3>
-                <p class="card-text text-muted small mb-1">Duración: 40 Horas | Capacidad: 25 alumnos</p>
-                <p class="card-text text-muted small mb-3">Prof. Juan López</p>
+                <p class="card-text text-muted mb-1">Duración: 40 horas</p>
+                <p class="card-text text-muted mb-1">Cupo por sección: 25 alumnos</p>
+                <p class="card-text text-dark fw-semibold mb-2">Cupos Anuales: 850 estudiantes</p>
+                <p class="card-text text-primary fw-bold mb-3">Profesor asignado: Juan López</p>
               </div>
-              <div class="mt-auto d-flex justify-content-between align-items-center">
-                <span class="fs-5 fw-bold text-primary">$250.000 CLP</span>
-                <a href="contacto.html" class="btn btn-sm btn-outline-primary fw-semibold">Matricularse</a>
+              <div class="mt-auto pt-3 d-flex justify-content-between align-items-center border-top">
+                <span class="fs-5 fw-bold text-dark">$250.000 CLP</span>
+                <a href="contacto.html" class="btn btn-primary fw-semibold">Matricularse</a>
               </div>
             </div>
           </article>
         </div>
 
         <!-- CRS002 -->
-        <div class="col-md-4">
-          <article class="card h-100">
+        <div class="col-md-6 col-lg-4">
+          <article class="card h-100 shadow-sm border-0">
             <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Diseño Gráfico Digital">
             <div class="card-body d-flex flex-column">
               <div>
                 <span class="badge bg-warning text-dark mb-2">Diseño</span>
                 <h3 class="card-title h5 text-dark fw-bold">CRS002 - Diseño Gráfico Digital</h3>
-                <p class="card-text text-muted small mb-1">Duración: 35 Horas | Capacidad: 20 alumnos</p>
-                <p class="card-text text-muted small mb-3">Prof. María González</p>
+                <p class="card-text text-muted mb-1">Duración: 35 horas</p>
+                <p class="card-text text-muted mb-1">Cupo por sección: 20 alumnos</p>
+                <p class="card-text text-dark fw-semibold mb-2">Cupos Anuales: 600 estudiantes</p>
+                <p class="card-text text-primary fw-bold mb-3">Profesor asignado: María González</p>
               </div>
-              <div class="mt-auto d-flex justify-content-between align-items-center">
-                <span class="fs-5 fw-bold text-primary">$220.000 CLP</span>
-                <a href="contacto.html" class="btn btn-sm btn-outline-primary fw-semibold">Matricularse</a>
+              <div class="mt-auto pt-3 d-flex justify-content-between align-items-center border-top">
+                <span class="fs-5 fw-bold text-dark">$220.000 CLP</span>
+                <a href="contacto.html" class="btn btn-primary fw-semibold">Matricularse</a>
               </div>
             </div>
           </article>
         </div>
 
         <!-- CRS003 -->
-        <div class="col-md-4">
-          <article class="card h-100">
+        <div class="col-md-6 col-lg-4">
+          <article class="card h-100 shadow-sm border-0">
             <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Marketing Digital">
             <div class="card-body d-flex flex-column">
               <div>
-                <span class="badge bg-primary mb-2">Marketing</span>
+                <span class="badge bg-success mb-2">Marketing</span>
                 <h3 class="card-title h5 text-dark fw-bold">CRS003 - Marketing Digital</h3>
-                <p class="card-text text-muted small mb-1">Duración: 30 Horas | Capacidad: 25 alumnos</p>
-                <p class="card-text text-muted small mb-3">Prof. Carlos Soto</p>
+                <p class="card-text text-muted mb-1">Duración: 30 horas</p>
+                <p class="card-text text-muted mb-1">Cupo por sección: 25 alumnos</p>
+                <p class="card-text text-dark fw-semibold mb-2">Cupos Anuales: 750 estudiantes</p>
+                <p class="card-text text-primary fw-bold mb-3">Profesor asignado: Carlos Soto</p>
               </div>
-              <div class="mt-auto d-flex justify-content-between align-items-center">
-                <span class="fs-5 fw-bold text-primary">$200.000 CLP</span>
-                <a href="contacto.html" class="btn btn-sm btn-outline-primary fw-semibold">Matricularse</a>
+              <div class="mt-auto pt-3 d-flex justify-content-between align-items-center border-top">
+                <span class="fs-5 fw-bold text-dark">$200.000 CLP</span>
+                <a href="contacto.html" class="btn btn-primary fw-semibold">Matricularse</a>
               </div>
             </div>
           </article>
         </div>
 
         <!-- CRS004 -->
-        <div class="col-md-6">
-          <article class="card h-100">
+        <div class="col-md-6 col-lg-6">
+          <article class="card h-100 shadow-sm border-0">
             <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Electrónica Básica">
             <div class="card-body d-flex flex-column">
               <div>
                 <span class="badge bg-danger mb-2">Oficios Técnicos</span>
                 <h3 class="card-title h5 text-dark fw-bold">CRS004 - Electrónica Básica</h3>
-                <p class="card-text text-muted small mb-1">Duración: 45 Horas | Capacidad: 15 alumnos</p>
-                <p class="card-text text-muted small mb-3">Prof. Luis Pérez</p>
+                <p class="card-text text-muted mb-1">Duración: 45 horas</p>
+                <p class="card-text text-muted mb-1">Cupo por sección: 15 alumnos</p>
+                <p class="card-text text-dark fw-semibold mb-2">Cupos Anuales: 450 estudiantes</p>
+                <p class="card-text text-primary fw-bold mb-3">Profesor asignado: Luis Pérez</p>
               </div>
-              <div class="mt-auto d-flex justify-content-between align-items-center">
-                <span class="fs-5 fw-bold text-primary">$280.000 CLP</span>
-                <a href="contacto.html" class="btn btn-sm btn-outline-primary fw-semibold">Matricularse</a>
+              <div class="mt-auto pt-3 d-flex justify-content-between align-items-center border-top">
+                <span class="fs-5 fw-bold text-dark">$280.000 CLP</span>
+                <a href="contacto.html" class="btn btn-primary fw-semibold">Matricularse</a>
               </div>
             </div>
           </article>
         </div>
 
         <!-- CRS005 -->
-        <div class="col-md-6">
-          <article class="card h-100">
+        <div class="col-md-6 col-lg-6">
+          <article class="card h-100 shadow-sm border-0">
             <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Gestión de Proyectos">
             <div class="card-body d-flex flex-column">
               <div>
                 <span class="badge bg-secondary mb-2">Administración</span>
                 <h3 class="card-title h5 text-dark fw-bold">CRS005 - Gestión de Proyectos</h3>
-                <p class="card-text text-muted small mb-1">Duración: 35 Horas | Capacidad: 20 alumnos</p>
-                <p class="card-text text-muted small mb-3">Prof. Ana Rodríguez</p>
+                <p class="card-text text-muted mb-1">Duración: 35 horas</p>
+                <p class="card-text text-muted mb-1">Cupo por sección: 20 alumnos</p>
+                <p class="card-text text-dark fw-semibold mb-2">Cupos Anuales: 550 estudiantes</p>
+                <p class="card-text text-primary fw-bold mb-3">Profesor asignado: Ana Rodríguez</p>
               </div>
-              <div class="mt-auto d-flex justify-content-between align-items-center">
-                <span class="fs-5 fw-bold text-primary">$230.000 CLP</span>
-                <a href="contacto.html" class="btn btn-sm btn-outline-primary fw-semibold">Matricularse</a>
+              <div class="mt-auto pt-3 d-flex justify-content-between align-items-center border-top">
+                <span class="fs-5 fw-bold text-dark">$230.000 CLP</span>
+                <a href="contacto.html" class="btn btn-primary fw-semibold">Matricularse</a>
               </div>
             </div>
           </article>
         </div>
-
       </div>
     </section>
   </main>
@@ -162,11 +170,10 @@
   <footer class="bg-dark text-white text-center py-4 mt-5">
     <div class="container">
       <p class="mb-1 fw-bold">EducaPro - Sedes en Santiago, Valparaíso y Concepción</p>
-      <small>&copy; 2026 Todos los derechos reservados. Evaluación DSY1104.</small>
+      <small>&copy; 2026 Todos los derechos reservados. Instituto de Formación Técnica y Profesional.</small>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/funciones.js"></script>
 </body>
 </html>

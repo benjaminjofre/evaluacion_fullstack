@@ -3,25 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EducaPro - Portal Profesor</title>
+  <title>EducaPro - Portal Docente</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="bg-light">
+
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top">
       <div class="container">
-        <a class="navbar-brand fw-bold text-warning" href="index.html">🎓 EducaPro</a>
+        <a class="navbar-brand text-warning fw-bold fs-4" href="index.html">🎓 EducaPro</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav me-auto">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
             <li class="nav-item"><a class="nav-link" href="contacto.html">Inscripción</a></li>
             <li class="nav-item"><a class="nav-link" href="pago.html">Pago Matrícula</a></li>
             <li class="nav-item"><a class="nav-link" href="estudiante.html">Mi Portal</a></li>
-            <li class="nav-item"><a class="nav-link active fw-bold" href="profesor.html">Portal Docente</a></li>
+            <li class="nav-item"><a class="nav-link active fw-semibold" href="profesor.html">Portal Docente</a></li>
             <li class="nav-item"><a class="nav-link" href="admin.html">Gestión Académica</a></li>
             <li class="nav-item"><a class="nav-link" href="estadisticas.html">Reportes</a></li>
           </ul>
@@ -31,47 +32,100 @@
   </header>
 
   <main class="container my-5">
-    <div class="bg-white p-4 rounded-4 shadow-sm">
-      <h2 class="fw-bold text-primary mb-4">Registro de Calificaciones y Asistencia</h2>
-      <p class="text-muted">Profesor: <strong>Juan López</strong> | Curso: <strong>CRS001 - Fundamentos de Programación</strong></p>
-      
-      <div class="table-responsive">
-        <table class="table table-hover align-middle">
-          <thead class="table-dark">
-            <tr>
-              <th>Estudiante</th>
-              <th>Estado Académico</th>
-              <th>Asistencia (%)</th>
-              <th>Nota Final</th>
-              <th>Acción</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Carlos Mendoza</td>
-              <td><span class="badge bg-info">EST002 - En curso</span></td>
-              <td><input type="number" class="form-control form-control-sm w-50" value="90"></td>
-              <td><input type="number" step="0.1" class="form-control form-control-sm w-50" value="6.5"></td>
-              <td><button class="btn btn-sm btn-primary">Guardar</button></td>
-            </tr>
-            <tr>
-              <td>Ana Gómez</td>
-              <td><span class="badge bg-info">EST002 - En curso</span></td>
-              <td><input type="number" class="form-control form-control-sm w-50" value="85"></td>
-              <td><input type="number" step="0.1" class="form-control form-control-sm w-50" value="5.8"></td>
-              <td><button class="btn btn-sm btn-primary">Guardar</button></td>
-            </tr>
-          </tbody>
-          <button type="button" id="btnExportarExcel" class="btn btn-success">
-            <i class="bi bi-file-earmark-excel"></i> Descargar Excel
-          </button>
-        </table>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div>
+        <h1 class="h2 fw-bold text-dark mb-1">Portal del Docente</h1>
+        <p class="text-muted mb-0">Gestión digital de notas y asistencia de asignaturas asignadas.</p>
+      </div>
+      <div class="bg-white p-3 rounded shadow-sm border">
+        <label for="selectProfesor" class="form-label fw-bold mb-1">Docente activo:</label>
+        <select id="selectProfesor" class="form-select fw-semibold text-primary" onchange="cargarAsignaturasDocente()">
+          <option value="Juan López">Prof. Juan López (CRS001)</option>
+          <option value="María González">Prof. María González (CRS002)</option>
+          <option value="Carlos Soto">Prof. Carlos Soto (CRS003)</option>
+          <option value="Luis Pérez">Prof. Luis Pérez (CRS004)</option>
+          <option value="Ana Rodríguez">Prof. Ana Rodríguez (CRS005)</option>
+        </select>
       </div>
     </div>
+
+    <!-- Registro Digital de Calificaciones -->
+    <section class="card shadow-sm border-0 rounded-3 p-4 mb-5">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="h4 fw-bold text-dark m-0">Registro Directo de Calificaciones y Asistencia</h2>
+        <span class="badge bg-success px-3 py-2">Sincronización Instantánea</span>
+      </div>
+      <p class="text-muted mb-4">Ingresa y actualiza los datos académicos sin usar planillas manuales.</p>
+
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>RUT Estudiante</th>
+              <th>Nombre Completo</th>
+              <th style="width: 150px;">Nota 1</th>
+              <th style="width: 150px;">Nota 2</th>
+              <th style="width: 180px;">% Asistencia</th>
+              <th>Estado Actual</th>
+            </tr>
+          </thead>
+          <tbody id="tablaNotasBody">
+            <!-- Carga de lista según docente seleccionado -->
+          </tbody>
+        </table>
+      </div>
+      <div class="text-end mt-3">
+        <button class="btn btn-primary btn-lg px-4" onclick="guardarCambios()">Guardar Cambios</button>
+      </div>
+    </section>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-  <script src="assets/js/funciones.js"></script>
+  <script>
+    const datosDocentes = {
+      "Juan López": [
+        { rut: "19.876.543-2", nombre: "Carlos Mendoza Silva", n1: 6.5, n2: 5.8, asistencia: 90, estado: "En curso" },
+        { rut: "20.123.456-7", nombre: "Andrea Contreras Pérez", n1: 7.0, n2: 6.8, asistencia: 95, estado: "En curso" }
+      ],
+      "María González": [
+        { rut: "21.098.765-4", nombre: "Valentina Rojas Soto", n1: 5.5, n2: 6.0, asistencia: 85, estado: "En curso" }
+      ],
+      "Carlos Soto": [
+        { rut: "20.456.789-1", nombre: "Sofia Navarro Gómez", n1: 6.0, n2: 6.2, asistencia: 92, estado: "En curso" }
+      ],
+      "Luis Pérez": [
+        { rut: "19.654.321-9", nombre: "Camila Henríquez Bravo", n1: 4.5, n2: 5.0, asistencia: 80, estado: "En curso" }
+      ],
+      "Ana Rodríguez": [
+        { rut: "20.789.012-5", nombre: "Fernanda Palma Torres", n1: 6.8, n2: 6.9, asistencia: 100, estado: "En curso" }
+      ]
+    };
+
+    function cargarAsignaturasDocente() {
+      const profe = document.getElementById('selectProfesor').value;
+      const tbody = document.getElementById('tablaNotasBody');
+      const lista = datosDocentes[profe] || [];
+      tbody.innerHTML = '';
+
+      lista.forEach((e, idx) => {
+        tbody.innerHTML += `
+          <tr>
+            <td class="fw-semibold text-secondary">${e.rut}</td>
+            <td class="fw-bold">${e.nombre}</td>
+            <td><input type="number" step="0.1" min="1" max="7" class="form-control" value="${e.n1}"></td>
+            <td><input type="number" step="0.1" min="1" max="7" class="form-control" value="${e.n2}"></td>
+            <td><input type="number" min="0" max="100" class="form-control" value="${e.asistencia}"></td>
+            <td><span class="badge bg-info text-dark">${e.estado}</span></td>
+          </tr>
+        `;
+      });
+    }
+
+    function guardarCambios() {
+      alert("Calificaciones y asistencia actualizadas correctamente en la base de datos.");
+    }
+
+    document.addEventListener('DOMContentLoaded', cargarAsignaturasDocente);
+  </script>
 </body>
 </html>

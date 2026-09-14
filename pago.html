@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EducaPro - Pasarela de Pago</title>
+  <title>EducaPro - Pago de Matrícula</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="bg-light">
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top">
       <div class="container">
-        <a class="navbar-brand fw-bold text-warning" href="index.html">🎓 EducaPro</a>
+        <a class="navbar-brand text-warning fw-bold fs-4" href="index.html">🎓 EducaPro</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav me-auto">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
             <li class="nav-item"><a class="nav-link" href="contacto.html">Inscripción</a></li>
-            <li class="nav-item"><a class="nav-link active fw-bold" href="pago.html">Pago Matrícula</a></li>
+            <li class="nav-item"><a class="nav-link active fw-semibold" href="pago.html">Pago Matrícula</a></li>
             <li class="nav-item"><a class="nav-link" href="estudiante.html">Mi Portal</a></li>
             <li class="nav-item"><a class="nav-link" href="profesor.html">Portal Docente</a></li>
             <li class="nav-item"><a class="nav-link" href="admin.html">Gestión Académica</a></li>
@@ -30,60 +30,73 @@
     </nav>
   </header>
 
-  <div class="container my-5">
-  <h2 class="mb-4">Pago de Matrícula</h2>
+  <main class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="card shadow-sm border-0 rounded-3 p-4 bg-white">
+          <h1 class="h3 fw-bold text-primary mb-3">Pasarela de Pago Simulado</h1>
+          
+          <div id="resumenInscripcion" class="alert alert-info mb-4">
+            <!-- Se llena dinámicamente -->
+          </div>
 
-  <div id="paso1Estudiante" class="card shadow-sm p-4 mb-4">
-    <h4 class="card-title mb-3">Paso 1: Identificación del Estudiante</h4>
-    <form id="formBuscarEstudiante">
-      <div class="mb-3">
-        <label for="docEstudiante" class="form-label">Número de Documento / RUT / Id Estudiante</label>
-        <input type="text" class="form-control" id="docEstudiante" placeholder="Ej: 12345678-9" required>
+          <form id="formPago">
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Número de Tarjeta (Simulación)</label>
+              <input type="text" class="form-control" placeholder="4500 0000 0000 0000" required>
+            </div>
+            <div class="row g-3 mb-4">
+              <div class="col-6">
+                <label class="form-label fw-semibold">MM/AA</label>
+                <input type="text" class="form-control" placeholder="12/28" required>
+              </div>
+              <div class="col-6">
+                <label class="form-label fw-semibold">CVC</label>
+                <input type="password" maxlength="3" class="form-control" placeholder="123" required>
+              </div>
+            </div>
+            <button type="submit" id="btnPagar" class="btn btn-success w-100 btn-lg fw-semibold">Confirmar Pago de Matrícula</button>
+          </form>
+        </div>
       </div>
-      <button type="submit" class="btn btn-primary">Buscar Estudiante</button>
-    </form>
-    <div id="msgErrorEstudiante" class="alert alert-danger mt-3 d-none">
-      Estudiante no encontrado. Verifique el número e intente de nuevo.
     </div>
-  </div>
-
-  <div id="paso2Pago" class="card shadow-sm p-4 d-none">
-    <h4 class="card-title mb-3">Paso 2: Selección de Curso y Datos de Pago</h4>
-
-    <div class="alert alert-info">
-      <strong>Estudiante:</strong> <span id="nombreEstudiantePago"></span> | 
-      <strong>Documento:</strong> <span id="docEstudiantePago"></span>
-    </div>
-
-      <form id="formPagarMatricula">
-        <div class="mb-3">
-          <label for="selectCursoPago" class="form-label">Seleccionar Curso a Pagar</label>
-          <select class="form-select" id="selectCursoPago" required>
-            <option value="">-- Seleccione un curso --</option>
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label for="montoPago" class="form-label">Monto de Matrícula ($)</label>
-          <input type="text" class="form-control" id="montoPago" readonly>
-        </div>
-
-        <div class="mb-3">
-          <label for="metodoPago" class="form-label">Método de Pago</label>
-          <select class="form-select" id="metodoPago" required>
-            <option value="tarjeta">Tarjeta de Crédito / Débito</option>
-            <option value="transferencia">Transferencia Bancaria</option>
-          </select>
-        </div>
-
-        <div class="d-flex justify-content-between">
-            <button type="button" class="btn btn-secondary" id="btnCambiarEstudiante">Volver / Cambiar Estudiante</button>
-            <button type="submit" class="btn btn-success">Confirmar y Pagar Matrícula</button>
-        </div>
-      </form>
-    </div>
-  </div>
+  </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const alumnoData = localStorage.getItem('alumnoInscrito');
+    const contenedor = document.getElementById('resumenInscripcion');
+
+    if (!alumnoData) {
+      contenedor.className = "alert alert-warning";
+      contenedor.innerHTML = "<strong>No hay inscripciones pendientes.</strong> Por favor completa el formulario de inscripción primero.";
+      document.getElementById('formPago').style.display = 'none';
+    } else {
+      const alumno = JSON.parse(alumnoData);
+      contenedor.innerHTML = `
+        <h5 class="fw-bold mb-2">Resumen de Inscripción</h5>
+        <p class="mb-1"><strong>Estudiante:</strong> ${alumno.nombre}</p>
+        <p class="mb-1"><strong>RUT:</strong> ${alumno.rut}</p>
+        <p class="mb-0"><strong>Curso:</strong> ${alumno.curso}</p>
+      `;
+    }
+
+    document.getElementById('formPago').addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (alumnoData) {
+        const alumno = JSON.parse(alumnoData);
+        alumno.pagado = true;
+        localStorage.setItem('alumnoInscrito', JSON.stringify(alumno));
+
+        // Incrementar el contador global de estudiantes
+        let contadorTotal = parseInt(localStorage.getItem('totalEstudiantesGlobal')) || 3200;
+        contadorTotal += 1;
+        localStorage.setItem('totalEstudiantesGlobal', contadorTotal);
+
+        alert('¡Pago realizado con éxito! Tu matrícula ha sido activada.');
+        window.location.href = 'estudiante.html';
+      }
+    });
+  </script>
 </body>
 </html>
